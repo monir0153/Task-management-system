@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
             'phone' => fake()->phoneNumber(),
             'address' => fake()->address(),
             'email_verified_at' => now(),
-            'role' => Role::admin,
+            'role' => Role::ADMIN,
             'password' => Hash::make('password'),
             'remember_token' => Str::random(10),
         ]);

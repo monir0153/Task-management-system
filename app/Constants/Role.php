@@ -5,6 +5,6 @@ namespace App\Constants;
 class Role
 {
 
-    public const admin = 'ADMIN';
-    public const user = 'USER';
+    public const ADMIN = 'admin';
+    public const USER = 'user';
 }

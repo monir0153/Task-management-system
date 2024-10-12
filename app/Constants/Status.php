@@ -4,7 +4,8 @@ namespace App\Constants;
 
 class Status
 {
-    public const pending = 'pending';
-    public const inProgress = 'in_progress';
-    public const completed = 'completed';
+    public const PENDING = 'pending';
+    public const CANCEL = 'pending';
+    public const INPROGRESS = 'in_progress';
+    public const COMPLETE = 'completed';
 }
