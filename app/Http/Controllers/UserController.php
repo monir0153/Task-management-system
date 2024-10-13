@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Constants\Role;
+use App\Constants\Status;
 use App\Http\Requests\UserRequst;
+use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -23,5 +26,21 @@ class UserController extends Controller
     {
         User::create($request->validated());
         return redirect()->route('user.index')->with('success', 'User created');
+    }
+    public function taskStatus($id, Request $request)
+    {
+        if ($request->status == Status::INPROGRESS) {
+            Task::find($id)->update([
+                'status' => $request->status,
+                'accepted_at' => now(),
+            ]);
+            return back()->with('success', 'Task status updated');
+        } elseif ($request->status == Status::COMPLETE) {
+            Task::find($id)->update([
+                'status' => $request->status,
+                'completed_at' => now(),
+            ]);
+            return back()->with('success', 'Task status updated');
+        }
     }
 }

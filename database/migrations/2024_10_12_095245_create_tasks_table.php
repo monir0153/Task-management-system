@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->foreignId('assign_to')->constrained('users');
+            $table->foreignId('user_id')->constrained('users');
             $table->string('status')->default(Status::PENDING);
             $table->timestamp('accepted_at')->nullable();
             $table->timestamp('completed_at')->nullable();
